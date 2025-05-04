@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnhcgdxrnmanm"]
+
+[ext_resource type="PackedScene" uid="uid://bp1jpn441fyra" path="res://Entities/Creatures/ghost.tscn" id="1_pplu1"]
+
+[sub_resource type="TileSet" id="TileSet_5pqgv"]
+
+[node name="Test Room" type="Node2D"]
+
+[node name="Ghost" parent="." instance=ExtResource("1_pplu1")]
+position = Vector2(362, 301)
+
+[node name="Camera2D" type="Camera2D" parent="Ghost"]
+position = Vector2(0, -37.5)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_5pqgv")

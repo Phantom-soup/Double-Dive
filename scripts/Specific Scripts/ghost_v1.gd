@@ -6,7 +6,7 @@ var last_direction = 1
 var speed = 1500
 var acceleration = 1500
 var friction = 4000
-var turn_acceleration
+var turn_acceleration = 8000
 
 #Jump
 var jump_power_initial = -300
@@ -30,7 +30,11 @@ enum State{
 var current_state: State = State.IDLE
 
 func _physics_process(delta: float) -> void:
+	flip_sprite()
 	_gravity(delta)
+	previous_direction()
+	_coyote_time(delta)
+	
 	
 	direction = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	previous_direction()
@@ -47,9 +51,9 @@ func _physics_process(delta: float) -> void:
 
 func flip_sprite():
 	if velocity.x > 0:
-		$Animations.flip_h = true
-	elif velocity.x < 0:
 		$Animations.flip_h = false
+	elif velocity.x < 0:
+		$Animations.flip_h = true
 
 
 func _gravity(delta: float) -> void:
@@ -72,13 +76,17 @@ func _jump(delta: float) -> void:
 			coyote_timer = -1
 			jump_timer = jump_time_max
 			velocity.y = jump_power_initial
+			print("Jump!")
 	else:
 		if can_doublejump:
 			can_doublejump = false
 			jump_timer = jump_time_max
 			velocity.y = jump_power_initial
+			print("wait...")
 		else:
 			_gravity(delta)
+			print("???")
+	print("jump?")
 
 
 func _coyote_time(delta: float) -> void:

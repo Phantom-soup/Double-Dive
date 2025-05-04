@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bp1jpn441fyra"]
+[gd_scene load_steps=6 format=3 uid="uid://bp1jpn441fyra"]
 
-[ext_resource type="Script" uid="uid://bplde2aka3cu2" path="res://scripts/ghost.gd" id="1_ha3c4"]
+[ext_resource type="Script" uid="uid://bkf7iouy4g4c" path="res://scripts/Specific Scripts/ghost.gd" id="1_ha3c4"]
 [ext_resource type="Texture2D" uid="uid://cnv7qde3twqoi" path="res://Art/sprites/Ghost/ghost_testsprite_beta.png" id="1_nfx8p"]
+[ext_resource type="Script" uid="uid://yo0l2ddun0bb" path="res://scripts/Specific Scripts/state_manager.gd" id="3_n7hje"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ha3c4"]
 animations = [{
@@ -29,3 +30,8 @@ animation = &"new_animation"
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -37.75)
 shape = SubResource("RectangleShape2D_n7hje")
+
+[node name="State Manager" type="Node" parent="."]
+script = ExtResource("3_n7hje")
+
+[node name="Idle" type="Node" parent="State Manager"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp1jpn441fyra"]
+[gd_scene load_steps=7 format=3 uid="uid://bp1jpn441fyra"]
 
 [ext_resource type="Script" uid="uid://bkf7iouy4g4c" path="res://scripts/Specific Scripts/ghost.gd" id="1_ha3c4"]
 [ext_resource type="Texture2D" uid="uid://cnv7qde3twqoi" path="res://Art/sprites/Ghost/ghost_testsprite_beta.png" id="1_nfx8p"]
 [ext_resource type="Script" uid="uid://yo0l2ddun0bb" path="res://scripts/Specific Scripts/state_manager.gd" id="3_n7hje"]
+[ext_resource type="Script" uid="uid://bw2wqgpyqim70" path="res://scripts/States/idle.gd" id="4_psqa2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ha3c4"]
 animations = [{
@@ -35,3 +36,29 @@ shape = SubResource("RectangleShape2D_n7hje")
 script = ExtResource("3_n7hje")
 
 [node name="Idle" type="Node" parent="State Manager"]
+script = ExtResource("4_psqa2")
+animation_name = "ghost_testsprite_beta"
+
+[node name="Walk" type="Node" parent="State Manager"]
+
+[node name="Run" type="Node" parent="State Manager"]
+
+[node name="Mach" type="Node" parent="State Manager"]
+
+[node name="Jump" type="Node" parent="State Manager"]
+
+[node name="Falling" type="Node" parent="State Manager"]
+
+[node name="Crouch" type="Node" parent="State Manager"]
+
+[node name="Slide" type="Node" parent="State Manager"]
+
+[node name="Skid" type="Node" parent="State Manager"]
+
+[node name="Spin Attack" type="Node" parent="State Manager"]
+
+[node name="Fumble" type="Node" parent="State Manager"]
+
+[node name="Wall Kick" type="Node" parent="State Manager"]
+
+[node name="Wall Jump" type="Node" parent="State Manager"]

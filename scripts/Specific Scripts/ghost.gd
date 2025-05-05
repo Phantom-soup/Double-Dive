@@ -7,13 +7,13 @@ extends CharacterBody2D
 func _ready() -> void:
 	# Initialize the state manager, passing a reference of the player to the states,
 	# that way they can move and react acordingly
-	state_machine.init(self)
+	state_machine._init()
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	pass
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

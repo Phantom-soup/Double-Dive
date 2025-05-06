@@ -14,6 +14,7 @@ config/name="Double Dive"
 config/tags=PackedStringArray("class_projects")
 run/main_scene="uid://dnhcgdxrnmanm"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/image="uid://de3iekvfe6sqe"
 config/icon="res://icon.svg"
 
 [file_customization]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl53oi1wvdrse"]
+
+[ext_resource type="Script" uid="uid://sq7hmpj33k5v" path="res://scripts/Specific Scripts/ghost_alt.gd" id="1_wj0if"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wj0if"]
+size = Vector2(20, 42)
+
+[node name="ghost_alt" type="CharacterBody2D"]
+script = ExtResource("1_wj0if")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -21)
+shape = SubResource("RectangleShape2D_wj0if")

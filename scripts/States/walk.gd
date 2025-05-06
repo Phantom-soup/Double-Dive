@@ -1,6 +1,6 @@
 extends State
 
-@export var walk_state : State
+@export var idle_state : State
 @export var jump_state : State
 @export var crouch_state : State
 @export var fall_state : State
@@ -23,6 +23,7 @@ func process_input(event : InputEvent) -> State:
 
 func process_physics(delta: float) -> State:
 	parent.velocity.y += gravity * delta
+	parent.velocity.x = move_toward(parent.velocity.x, , delta)
 	parent.move_and_slide()
 	
 	if !parent.is_on_floor():

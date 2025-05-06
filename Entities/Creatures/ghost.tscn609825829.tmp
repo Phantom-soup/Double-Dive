@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bp1jpn441fyra"]
+[gd_scene load_steps=7 format=3 uid="uid://bp1jpn441fyra"]
 
 [ext_resource type="Script" uid="uid://bkf7iouy4g4c" path="res://scripts/Specific Scripts/ghost.gd" id="1_ha3c4"]
 [ext_resource type="Texture2D" uid="uid://cnv7qde3twqoi" path="res://Art/sprites/Ghost/ghost_testsprite_beta.png" id="1_nfx8p"]
 [ext_resource type="Script" uid="uid://yo0l2ddun0bb" path="res://scripts/Specific Scripts/state_manager.gd" id="3_n7hje"]
 [ext_resource type="Script" uid="uid://bw2wqgpyqim70" path="res://scripts/States/idle.gd" id="4_psqa2"]
-[ext_resource type="Script" uid="uid://c6phuo1yg050j" path="res://scripts/States/walk.gd" id="5_ncir6"]
-[ext_resource type="Script" uid="uid://u5g23mcj6uda" path="res://scripts/States/falling.gd" id="6_kfx1r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ha3c4"]
 animations = [{
@@ -38,15 +36,11 @@ shape = SubResource("RectangleShape2D_n7hje")
 script = ExtResource("3_n7hje")
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="State Manager" node_paths=PackedStringArray("walk_state")]
+[node name="Idle" type="Node" parent="State Manager"]
 script = ExtResource("4_psqa2")
-walk_state = NodePath("../Walk")
 animation_name = "ghost_testsprite_beta"
 
 [node name="Walk" type="Node" parent="State Manager"]
-script = ExtResource("5_ncir6")
-animation_name = null
-move_speed = null
 
 [node name="Run" type="Node" parent="State Manager"]
 
@@ -55,7 +49,6 @@ move_speed = null
 [node name="Jump" type="Node" parent="State Manager"]
 
 [node name="Falling" type="Node" parent="State Manager"]
-script = ExtResource("6_kfx1r")
 
 [node name="Crouch" type="Node" parent="State Manager"]
 

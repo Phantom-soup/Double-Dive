@@ -45,8 +45,6 @@ animation_name = "ghost_testsprite_beta"
 
 [node name="Walk" type="Node" parent="State Manager"]
 script = ExtResource("5_ncir6")
-animation_name = null
-move_speed = null
 
 [node name="Run" type="Node" parent="State Manager"]
 

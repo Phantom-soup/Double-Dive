@@ -17,6 +17,11 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://de3iekvfe6sqe"
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [file_customization]
 
 folder_colors={

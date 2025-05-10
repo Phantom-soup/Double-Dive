@@ -27,7 +27,7 @@ enum State{
 	WALK,
 	JUMP
 }
-var current_state: State = State.IDLE
+#var current_state: State = State.IDLE
 
 func _physics_process(delta: float) -> void:
 	flip_sprite()

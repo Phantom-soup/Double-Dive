@@ -38,6 +38,8 @@ var wall_cling = false
 var cling_direction = 0
 var hop_off = false
 
+var wall_kick_pushoff = 1700
+
 var coyote_time = 0.1
 var coyote_timer = 0
 var late_jump_time = 0.1
@@ -47,15 +49,12 @@ enum Act{IDLE, WALK, JUMPING, FALLING, WALLHUG, CROUCH, SPINATTACK}
 var current_act: Act = Act.IDLE
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Down") and is_on_floor():
-		crouching = true
-	if Input.is_action_just_pressed("Up") and !sliding:
-		crouching = false
-	
 	if Input.is_action_just_pressed("Action"):
 		if crouching:
 			velocity.x = sliding_speed * last_direction
 			sliding = true
+		if is_on_wall_only():
+			velocity.x = wall_hop_pushoff * -cling_direction
 
 func _physics_process(delta: float) -> void:
 	grav_down(delta)
@@ -80,11 +79,18 @@ func grav_down(delta: float) -> void:
 func update_movement(delta: float) -> void:
 	direction = Input.get_axis("Left", "Right")
 	
+	if Input.is_action_pressed("Down") and is_on_floor():
+		crouching = true
+	else:
+		crouching = false
+	
 	if direction:
 		last_direction = direction
 		
 		if direction * velocity.x < 0: #turning around
 			velocity.x = move_toward(velocity.x, direction * speed, turn_acceleration * delta)
+		elif velocity.x > run_speed_break:
+			velocity.x = move_toward(velocity.x, direction * run_speed, run_acceleration * delta)
 		elif !crouching: #walking
 			velocity.x = move_toward(velocity.x, direction * speed, acceleration * delta)
 		else: # crawling

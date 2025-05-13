@@ -50,14 +50,12 @@ var current_act: Act = Act.IDLE
 var previous_act: Act = Act.IDLE
 
 func _unhandled_input(event: InputEvent) -> void:
-<<<<<<< HEAD
 	if Input.is_action_just_pressed("Down"):
 		crouching = true
 	if Input.is_action_just_released("Down"):
 		crouching = false
 	
-=======
->>>>>>> aec893696dc292c447f90798ee0d208a6fb2e514
+
 	if Input.is_action_just_pressed("Action"):
 		if crouching:
 			velocity.x = sliding_speed * last_direction

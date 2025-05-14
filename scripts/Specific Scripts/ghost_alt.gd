@@ -28,7 +28,7 @@ var jump_time_max = 0.15
 var jump_timer = 0
 var has_jumped = false
 
-var wall_hop_power_initial = 500
+var wall_hop_power_initial = 700
 var wall_hop_power = 4000
 var wall_hop_distance = 5000
 var wall_hop_pushoff = 900
